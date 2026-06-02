@@ -1,0 +1,34 @@
+server:
+  listen: "127.0.0.1:8080"
+
+edge:
+  mode: "public_ingress"
+
+auth:
+  issuer: "https://idp.example.com/oauth2/default"
+  audience: "mcp-data-gateway"
+  jwks_url: "https://idp.example.com/oauth2/default/v1/keys"
+  group_claim_name: "groups"
+  required_groups:
+    - "mcp-users"
+
+policy:
+  default_tool_pack: "analyst"
+  group_tool_packs:
+    mcp-users:
+      - "analyst"
+
+postgres:
+  dsn_env: "MCP_DATA_GATEWAY_POSTGRES_DSN"
+  max_rows: 100
+  tool_packs:
+    analyst:
+      tables:
+        public.example_table:
+          columns:
+            - id
+            - name
+
+audit:
+  sink: "stdout"
+  include_payloads: false

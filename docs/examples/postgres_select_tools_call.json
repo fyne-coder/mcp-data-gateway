@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "id": 5,
+  "method": "tools/call",
+  "params": {
+    "name": "postgres_select",
+    "arguments": {
+      "table": "public.example_table",
+      "columns": ["id", "name"],
+      "limit": 10
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+artifacts/
+executor_tasks.md
+bin/
+dist/
+coverage.out
+tmp/
+vendor/
