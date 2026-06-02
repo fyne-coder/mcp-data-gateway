@@ -8,7 +8,7 @@ Build a self-hosted MCP gateway that lets hosted AI clients reach internal tools
 
 The project is for organizations that want assistants to use internal operational data without bypassing the controls they already rely on for human and service access. The gateway should make MCP access reviewable by infrastructure, security, and data owners before any broader production rollout.
 
-The first business proof is intentionally narrow: a hosted MCP client reaches a customer-hosted gateway, OIDC identifies the caller, group policy selects an allowed tool pack, a read-only Postgres tool returns only allowlisted columns, and the gateway emits payload-safe audit events.
+The first business proof is intentionally narrow: a hosted MCP client reaches a customer-hosted HTTPS gateway, OIDC identifies the caller, group policy selects an allowed tool pack, a read-only Postgres tool returns only allowlisted columns, and the gateway emits payload-safe audit events. The private MCP server or database adapter is not the public endpoint.
 
 ## Launch Positioning
 
@@ -29,7 +29,7 @@ A self-hosted MCP gateway that puts your IdP and your policy engine in front of 
 
 ## MVP Boundary
 
-The first tagged release is still pre-alpha. In-tree today: OIDC on `/mcp`, payload-safe audit, SDK-backed MCP, remote MCP conformance fixtures, read-only Postgres with allowlists, and passthrough result shaping only. Helm, SBOM/signing, and full data-level governance are not done. SAML, Terraform, generic connector SDKs, and broad "works with every assistant" claims remain later work.
+Version `0.1.0` is a pre-alpha source release. In-tree today: OIDC on `/mcp`, payload-safe audit, SDK-backed MCP, remote MCP conformance fixtures, read-only Postgres with allowlists, and passthrough result shaping only. Helm, SBOM/signing, and full data-level governance are not done. SAML, Terraform, generic connector SDKs, and broad "works with every assistant" claims remain later work.
 
 ## Edge Modes
 

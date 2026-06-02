@@ -8,7 +8,7 @@ This project is an early open-source scaffold for teams that want to give assist
 
 Enterprises want AI assistants to help with real work: checking customer records, reading operational data, preparing account context, and answering internal questions. The useful data usually lives behind private networks, in systems that already have access rules, audit expectations, and compliance obligations.
 
-Most hosted assistants need a public or provider-reachable MCP endpoint. That creates a control problem: teams need the endpoint to be reachable by the assistant, but they cannot let it become an ungoverned bridge into private tools.
+Current hosted assistant platforms, including Claude and ChatGPT remote-MCP flows, require an externally reachable HTTPS MCP endpoint. That creates a control problem: teams need the endpoint to be reachable by the assistant, but they cannot expose an internal MCP server or database-backed tool as an ungoverned bridge into private systems.
 
 MCP Data Gateway is the control point for that gap. It is designed to sit at the customer edge, validate the caller with the customer's IdP, map groups to allowed tool packs, enforce connector allowlists, and emit payload-safe audit events before private data is returned.
 
@@ -42,7 +42,7 @@ This repository is not a hosted service. It is meant to be deployed by the organ
 
 ## MVP Scope
 
-Target for the first tagged release (still pre-alpha today):
+Version `0.1.0` is the first pre-alpha source release:
 
 - OIDC only.
 - One gateway per organization or business unit.
@@ -54,11 +54,11 @@ Target for the first tagged release (still pre-alpha today):
 - Stable audit log schema.
 - Result-shaping interface, even if the first implementation is passthrough.
 
-**Implemented in this repository (unreleased):** OIDC/JWKS auth on `/mcp`, payload-safe audit, deterministic doctor (config, audit sink, opt-in JWKS/token checks, optional live MCP tool invocation checks), SDK-backed MCP Streamable HTTP, public-safe remote MCP conformance fixtures, read-only `postgres_select` with group tool packs and table/column allowlists, and passthrough result shaping only.
+**Implemented in `0.1.0`:** OIDC/JWKS auth on `/mcp`, payload-safe audit, deterministic doctor (config, audit sink, opt-in JWKS/token checks, optional live MCP tool invocation checks), SDK-backed MCP Streamable HTTP, public-safe remote MCP conformance fixtures, read-only `postgres_select` with group tool packs and table/column allowlists, and passthrough result shaping only.
 
-**Not implemented yet:** Helm chart, SBOM/signing, ingress/tunnel reachability doctor checks, and data-level result filtering.
+**Known limits:** Helm chart, SBOM/signing, ingress/tunnel reachability doctor checks, and data-level result filtering are not shipped in `0.1.0`.
 
-Non-goals for the first release:
+Non-goals for `0.1.0`:
 
 - SAML.
 - Terraform.
@@ -118,7 +118,7 @@ The server exposes:
 
 ## Status
 
-Pre-alpha and unreleased. The gateway implements OIDC/JWKS auth, payload-safe audit, deterministic doctor checks, SDK-backed MCP Streamable HTTP, public-safe conformance fixtures, and a read-only `postgres_select` tool gated by group tool packs and allowlists. Packaging (Helm), supply-chain signing, and full data governance are not shipped yet.
+Pre-alpha source release. The gateway implements OIDC/JWKS auth, payload-safe audit, deterministic doctor checks, SDK-backed MCP Streamable HTTP, public-safe conformance fixtures, and a read-only `postgres_select` tool gated by group tool packs and allowlists. Packaging (Helm), supply-chain signing, and full data governance are not shipped yet.
 
 ## License
 

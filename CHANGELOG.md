@@ -2,11 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-This project follows semantic versioning after the first tagged release.
+This project follows semantic versioning.
 
-## Unreleased
+## [0.1.0] - 2026-06-02
 
-### Implemented (pre-alpha)
+Initial pre-alpha source release.
+
+### Implemented
 
 - OIDC/JWKS bearer validation on `POST /mcp` via `github.com/coreos/go-oidc/v3`; `/healthz` and `/readyz` stay unauthenticated.
 - Payload-safe, one-event-per-request audit for `/mcp` auth and tool decisions (no raw tokens, bodies, tool args, or row payloads).
@@ -20,7 +22,3 @@ This project follows semantic versioning after the first tagged release.
 - Public project scaffold, CLI (`version`, `doctor`, `serve`), configuration contract, and example config.
 - Architecture, requirements, threat model, audit schema, roadmap, development, deployment, operations, and publishing docs.
 - CI workflow and local `make ci` gate.
-
-### Not yet shipped
-
-- Helm chart, SBOM/signing, ingress/tunnel reachability doctor checks, and data-level result filtering.

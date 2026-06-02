@@ -26,9 +26,21 @@ Confirm `.gitignore` excludes:
 - Coverage outputs.
 - Local OS files such as `.DS_Store`.
 
-## Release Bar
+## Pre-Alpha Source Release Bar
 
-Do not cut a public release until:
+The `0.1.x` line may be published as source-only pre-alpha releases when:
+
+- CI is green.
+- Negative auth tests exist.
+- Threat model is current.
+- Audit schema is stable enough for early adopters.
+- README claims match implemented behavior.
+
+Do not describe these tags as production-ready.
+
+## Production Release Bar
+
+Do not cut a production release until:
 
 - CI is green.
 - Negative auth tests exist.

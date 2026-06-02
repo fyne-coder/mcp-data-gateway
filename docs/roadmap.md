@@ -1,6 +1,6 @@
 # Roadmap
 
-Status: **pre-alpha**, unreleased. The sections below separate what is in-tree today from what is still planned.
+Status: **0.1.0 pre-alpha source release**. The sections below separate what is in-tree today from what is still planned.
 
 ## In tree today
 

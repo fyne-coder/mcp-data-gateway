@@ -1,6 +1,6 @@
 # Architecture
 
-MCP Data Gateway is a customer-controlled enforcement point between hosted AI clients and private tools. It keeps the hosted client integration small and reachable while keeping identity validation, tool authorization, connector allowlists, and audit inside the customer's environment.
+MCP Data Gateway is a customer-controlled enforcement point between hosted AI clients and private tools. Current Claude and ChatGPT remote-MCP flows need an externally reachable HTTPS MCP endpoint; the gateway provides that endpoint without exposing the internal MCP server or private database adapter directly. It keeps the hosted client integration small and reachable while keeping identity validation, tool authorization, connector allowlists, and audit inside the customer's environment.
 
 ```mermaid
 flowchart LR

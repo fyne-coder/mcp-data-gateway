@@ -1,6 +1,6 @@
 # Deployment
 
-The deployment goal is to make hosted MCP clients reachable without moving private adapters or databases onto the public internet. The gateway should be the only public or provider-reachable control point, and it should run in infrastructure owned by the organization that owns the data.
+The deployment goal is to make hosted MCP clients reachable without moving private adapters or databases onto the public internet. Current hosted assistant platforms, including Claude and ChatGPT remote-MCP flows, require an externally reachable HTTPS MCP endpoint. The gateway should be the only public or provider-reachable control point, and it should run in infrastructure owned by the organization that owns the data.
 
 ## MVP Deployment Shape
 
@@ -16,7 +16,7 @@ Do not expose private adapters directly to the internet.
 
 ## Public Ingress
 
-Use public ingress when the hosted client needs a reachable HTTPS `/mcp` URL.
+Use public ingress when the hosted client needs a reachable HTTPS `/mcp` URL. Do not point that public URL directly at an internal MCP server or private database adapter; terminate it at the gateway so identity, policy, audit, and allowlist checks run first.
 
 Required controls:
 
